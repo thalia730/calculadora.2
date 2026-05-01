@@ -20,7 +20,12 @@
     <button onclick="multiplicar()">multiplicar</button>
     <button onclick="subtrair()">subtrair</button>
     <button onclick="dividir()">dividir</button>
+    <button onclick="testarSomar()">Teste Soma</button>
+    <button onclick="testarSubtrair()">Teste Subtração</button>
+    <button onclick="testarMultiplicar()">Teste Multiplicação</button>
+    <button onclick="testarDividir()">Teste Divisão</button>
     <div id="resultado"></div>
+
     <script>
         function somar() {
             const n1 = parseFloat(document.getElementById("num1").value);
@@ -38,7 +43,7 @@
             const n1 = parseFloat(document.getElementById("num1").value);
             const n2 = parseFloat(document.getElementById("num2").value);
 
-            if (isNaN(n1)  || isNaN(n2)) {
+            if (isNaN(n1) || isNaN(n2)) {
                 document.getElementById("resultado").innerHTML =
                     "Por favor, digite números válidos.";
             } else {
@@ -69,6 +74,34 @@
                 document.getElementById("resultado").innerHTML =
                     "Resultado:" + (n1 / n2);
             }
+        }
+        function testarSomar() {
+            document.getElementById("num1").value = "melancia";
+            document.getElementById("num2").value = "4";
+            somar();
+            document.getElementById("resultado").innerHTML =
+                "Teste Soma com texto → Deve dar erro";
+        }
+        function testarSubtrair() {
+            document.getElementById("num1").value = "abc";
+            document.getElementById("num2").value = "2";
+            subtrair();
+            document.getElementById("resultado").innerHTML =
+                "Teste Subtração com texto → Deve dar erro";
+        }
+        function testarMultiplicar() {
+            document.getElementById("num1").value = "banana";
+            document.getElementById("num2").value = "5";
+            multiplicar();
+            document.getElementById("resultado").innerHTML =
+                "Teste Multiplicação com texto → Deve dar erro";
+        }
+        function testarDividir() {
+            document.getElementById("num1").value = "laranja";
+            document.getElementById("num2").value = "2";
+            dividir();
+            document.getElementById("resultado").innerHTML =
+                "Teste Divisão com texto → Deve dar erro";
         }
     </script>
 </body>
