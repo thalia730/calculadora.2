@@ -16,10 +16,10 @@
 
     <br><br>
 
-    <button onclick="somar()">somar</button>
-    <button onclick="multiplicar()">multiplicar</button>
-    <button onclick="subtrair()">subtrair</button>
-    <button onclick="dividir()">dividir</button>
+    <button id="soma" onclick="somar()">somar</button>
+    <button id="mult" onclick="multiplicar()">multiplicar</button>
+    <button id="sub" onclick="subtrair()">subtrair</button>
+    <button id="div" onclick="dividir()">dividir</button>
     <button onclick="testarSomar()">Teste Soma</button>
     <button onclick="testarSubtrair()">Teste Subtração</button>
     <button onclick="testarMultiplicar()">Teste Multiplicação</button>
@@ -103,6 +103,30 @@
             document.getElementById("resultado").innerHTML =
                 "Teste Divisão com texto → Deve dar erro";
         }
+        // FUNÇÃO DE TESTE
+        function testar(nome, fn) {
+            try {
+                fn();
+                console.log("certo " + nome);
+            } catch (erro) {
+                console.error("erro " + nome + " -> " + erro.message);
+            }
+        }
+        testar("Teste simples", () => {
+            if (2 + 2 !== 4) throw new Error("Erro");
+        });
+        //  TESTE 2: Inputs existem
+        testar("Inputs devem existir", () => {
+            if (!document.getElementById("num1")) throw new Error("Input num1 não encontrado");
+            if (!document.getElementById("num2")) throw new Error("Input num2 não encontrado");
+        });
+        // TESTE 3:botões existem
+        testar("Botões devem existir", () => {
+            if (!document.getElementById("soma")) throw new Error("Botão soma não encontrado");
+            if (!document.getElementById("sub")) throw new Error("Botão sub não encontrado");
+            if (!document.getElementById("mult")) throw new Error("Botão mult não encontrado");
+            if (!document.getElementById("div")) throw new Error("Botão div não encontrado");
+        });
     </script>
 </body>
 
